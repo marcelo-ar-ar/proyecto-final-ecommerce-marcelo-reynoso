@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+}
+
+h1,h2 {
+    padding: 10px;
+}
+
+
+h1 {
+    font-size: 46px;
+    color: white;
+}
+
+header {
+    background-color: cyan;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    background-color: cyan;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    color: black;
+    font-size: 1.2rem;
+}
+
+footer p {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: gray;
+}
+
+.nav-menu li {
+    margin: 10;
+    padding: 10;
+}
+
+.highlight {
+    font-family: monospace;
+    background-color: yellow;
+}
+
+# main-title {
+    font-size: 24px;
+    color: green;
+}
+
+main p {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+      font-family: serif;
+      background-color: #04AA6D;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+}
+
+input, textarea {
+    width: 100%;
+
+}
+
+label {
+    margin-bottom: 10px; 
+}
+
+form {
+    padding: 10px;
+}
+
+.container {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.item {
+     flex: 1 1 200px;
+     margin: 10px;
+     background-color: #2196F3;
+     color: white;
+     padding: 20px;
+}
+
+.reseñas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #90caf9;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .reseñas {
+        grid-template-columns: 1fr;
+    }
+}
