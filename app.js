@@ -35,11 +35,29 @@ function generarProductos() {
   return productos;
 }
 
+function alternarDescripcion(tarjeta, description, boton) {
+  // 3a. Verificar si el párrafo de descripción ya existe dentro de la tarjeta
+  const descripcionExistente = tarjeta.querySelector(".descripcion-producto");
+
+  if (descripcionExistente) {
+    // 3d. Si ya está visible, ocultarla (eliminarla del DOM)
+    descripcionExistente.remove();
+    boton.textContent = "Ver descripción";
+  } else {
+    // 3b. Si no está visible, crear el <p> con la descripción
+    const parrafoDescripcion = document.createElement("p");
+    parrafoDescripcion.classList.add("descripcion-producto");
+    parrafoDescripcion.textContent = description;
+
+    // 3c. Agregar el párrafo dentro de la tarjeta
+    tarjeta.appendChild(parrafoDescripcion);
+    boton.textContent = "Ocultar descripción";
+  }
+}
+
 function mostrarProductos() {
-  // 3. Acceder al contenedor creado en el HTML
   const contenedor = document.getElementById("contenedor-productos");
 
-  // Obtenemos el catálogo completo (incluyendo el producto en oferta)
   const catalogo = generarProductos();
   const productoOferta = {
     id: 6,
@@ -49,28 +67,34 @@ function mostrarProductos() {
   };
   const catalogoActualizado = [...catalogo, productoOferta];
 
-  // 4. Recorrer el array de productos
-  catalogoActualizado.forEach(({ name, precio }) => {
-    // 5a. Crear el div de la tarjeta y asignarle la clase .card
+  catalogoActualizado.forEach(({ name, precio, description }) => {
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("card");
 
-    // 5b. Crear el <h3> para el nombre del producto
     const titulo = document.createElement("h3");
     titulo.textContent = name;
 
-    // 5b. Crear el <p> para el precio
     const parrafoPrecio = document.createElement("p");
+    parrafoPrecio.classList.add("precio-producto");
     parrafoPrecio.textContent = `$${precio}`;
 
-    // Insertar título y precio dentro de la tarjeta
+    // 1. Crear botón pequeño con el texto "Ver descripción"
+    const botonDescripcion = document.createElement("button");
+    botonDescripcion.type = "button";
+    botonDescripcion.classList.add("btn-descripcion");
+    botonDescripcion.textContent = "Ver descripción";
+
+    // 2. Registrar el evento clic con addEventListener
+    botonDescripcion.addEventListener("click", () => {
+      alternarDescripcion(tarjeta, description, botonDescripcion);
+    });
+
     tarjeta.appendChild(titulo);
     tarjeta.appendChild(parrafoPrecio);
+    tarjeta.appendChild(botonDescripcion);
 
-    // 6. Insertar la tarjeta dentro del contenedor principal
     contenedor.appendChild(tarjeta);
   });
 }
 
-// 2. Ejecutar automáticamente al cargar la página
 document.addEventListener("DOMContentLoaded", mostrarProductos);

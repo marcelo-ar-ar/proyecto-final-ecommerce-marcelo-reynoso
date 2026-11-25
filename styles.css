@@ -168,3 +168,31 @@ form {
   font-weight: 600;
   color: #2563eb;
 }
+
+.card .precio-producto {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 0.75rem;
+}
+
+.card .btn-descripcion {
+  background-color: #e5e7eb;
+  color: #111827;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.card .btn-descripcion:hover {
+  background-color: #d1d5db;
+}
+
+.card .descripcion-producto {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4b5563;
+}
